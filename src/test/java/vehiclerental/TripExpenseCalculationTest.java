@@ -19,7 +19,7 @@ public class TripExpenseCalculationTest {
     @Test
     public void testTotalExpenseForRentingPetrolCarWithAC() {
         VehicleType vehicleType = new Car(FuelType.PETROL, VehicleFacility.AC);
-        List<String> destinations = new ArrayList<String>();
+        List<String> destinations = new ArrayList<>();
         destinations.add("Pune");
         destinations.add("Mumbai");
         destinations.add("Bangalore");
@@ -32,92 +32,85 @@ public class TripExpenseCalculationTest {
     @Test
     public void testTotalExpenseForRentingPetrolCarWithoutAC() {
         VehicleType vehicleType = new Car(FuelType.PETROL, VehicleFacility.NON_AC);
-        List<String> destinations = new ArrayList<String>();
+        List<String> destinations = new ArrayList<>();
         destinations.add("Pune");
         destinations.add("Mumbai");
-        destinations.add("Bangalore");
         destinations.add("Delhi");
         destinations.add("Chennai");
         tripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, 4);
-        assertEquals("Incorrect Expense", 74800.0f, tripExpenseCalculation.getTripExpense(), 0.0);
+        assertEquals("Incorrect Expense", 51750.0f, tripExpenseCalculation.getTripExpense(), 0.0);
     }
 
     @Test
     public void testTotalExpenseForRentingDieselCarWithAC() {
         VehicleType vehicleType = new Car(FuelType.DIESEL, VehicleFacility.AC);
-        List<String> destinations = new ArrayList<String>();
+        List<String> destinations = new ArrayList<>();
         destinations.add("Pune");
         destinations.add("Mumbai");
-        destinations.add("Bangalore");
         destinations.add("Delhi");
         destinations.add("Chennai");
         tripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, 4);
-        assertEquals("Incorrect Expense", 74800.0f, tripExpenseCalculation.getTripExpense(), 0.0);
+        assertEquals("Incorrect Expense", 55200.0f, tripExpenseCalculation.getTripExpense(), 0.0);
     }
 
     @Test
     public void testTotalExpenseForRentingDieselCarWithoutAC() {
         VehicleType vehicleType = new Car(FuelType.DIESEL, VehicleFacility.NON_AC);
-        List<String> destinations = new ArrayList<String>();
+        List<String> destinations = new ArrayList<>();
         destinations.add("Pune");
         destinations.add("Mumbai");
-        destinations.add("Bangalore");
         destinations.add("Delhi");
         destinations.add("Chennai");
         tripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, 4);
-        assertEquals("Incorrect Expense", 74800.0f, tripExpenseCalculation.getTripExpense(), 0.0);
+        assertEquals("Incorrect Expense", 48300.0f, tripExpenseCalculation.getTripExpense(), 0.0);
     }
 
     @Test
     public void testTotalExpenseForRentingDieselCarWithoutACForExceedingPassengerLimit() {
         VehicleType vehicleType = new Car(FuelType.DIESEL, VehicleFacility.NON_AC);
-        List<String> destinations = new ArrayList<String>();
+        List<String> destinations = new ArrayList<>();
         destinations.add("Pune");
         destinations.add("Mumbai");
-        destinations.add("Bangalore");
         destinations.add("Delhi");
         destinations.add("Chennai");
-        tripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, 6);
-        assertEquals("Incorrect Expense", 74800.0f, tripExpenseCalculation.getTripExpense(), 0.0);
+        tripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, 7);
+        assertEquals("Incorrect Expense", 55200.0f, tripExpenseCalculation.getTripExpense(), 0.0);
     }
 
     @Test
     public void testTotalExpenseForRentingDieselCarWithACForExceedingPassengerLimit() {
         VehicleType vehicleType = new Car(FuelType.DIESEL, VehicleFacility.AC);
-        List<String> destinations = new ArrayList<String>();
+        List<String> destinations = new ArrayList<>();
         destinations.add("Pune");
         destinations.add("Mumbai");
-        destinations.add("Bangalore");
         destinations.add("Delhi");
         destinations.add("Chennai");
         tripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, 7);
-        assertEquals("Incorrect Expense", 74800.0f, tripExpenseCalculation.getTripExpense(), 0.0);
+        assertEquals("Incorrect Expense", 62100.0f, tripExpenseCalculation.getTripExpense(), 0.0);
     }
 
     @Test
     public void testTotalExpenseForRentingPetrolCarWithACForExceedingPassengerLimit() {
         VehicleType vehicleType = new Car(FuelType.PETROL, VehicleFacility.AC);
-        List<String> destinations = new ArrayList<String>();
+        List<String> destinations = new ArrayList<>();
         destinations.add("Pune");
         destinations.add("Mumbai");
-        destinations.add("Bangalore");
-        destinations.add("Delhi");
         destinations.add("Chennai");
+        destinations.add("Delhi");
         tripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, 6);
-        assertEquals("Incorrect Expense", 74800.0f, tripExpenseCalculation.getTripExpense(), 0.0);
+        assertEquals("Incorrect Expense", 47421.0f, tripExpenseCalculation.getTripExpense(), 0.0);
     }
 
     @Test
     public void testTotalExpenseForRentingPetrolCarWithoutACForExceedingPassengerLimit() {
         VehicleType vehicleType = new Car(FuelType.PETROL, VehicleFacility.NON_AC);
-        List<String> destinations = new ArrayList<String>();
+        List<String> destinations = new ArrayList<>();
         destinations.add("Pune");
         destinations.add("Mumbai");
-        destinations.add("Bangalore");
-        destinations.add("Delhi");
         destinations.add("Chennai");
-        tripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, 7);
-        assertEquals("Incorrect Expense", 74800.0f, tripExpenseCalculation.getTripExpense(), 0.0);
+        destinations.add("Delhi");
+        tripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, 6);
+        assertEquals("Incorrect Expense", 42152.0f, tripExpenseCalculation.getTripExpense(), 0.0);
     }
 
     ///////////////////////////////// End of Tests for Renting Car Type //////////////////////////////////////////////////
@@ -127,53 +120,49 @@ public class TripExpenseCalculationTest {
     @Test
     public void testTotalExpenseForRentingBusWithAC() {
         VehicleType vehicleType = new Bus(FuelType.DIESEL, VehicleFacility.AC);
-        List<String> destinations = new ArrayList<String>();
+        List<String> destinations = new ArrayList<>();
         destinations.add("Pune");
         destinations.add("Mumbai");
-        destinations.add("Bangalore");
         destinations.add("Delhi");
         destinations.add("Chennai");
         tripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, 4);
-        assertEquals("Incorrect Expense", 74800.0f, tripExpenseCalculation.getTripExpense(), 0.0);
+        assertEquals("Incorrect Expense", 54234.0f, tripExpenseCalculation.getTripExpense(), 0.0);
     }
 
     @Test
     public void testTotalExpenseForRentingBusWithoutAC() {
         VehicleType vehicleType = new Bus(FuelType.DIESEL, VehicleFacility.NON_AC);
-        List<String> destinations = new ArrayList<String>();
+        List<String> destinations = new ArrayList<>();
         destinations.add("Pune");
         destinations.add("Mumbai");
-        destinations.add("Bangalore");
         destinations.add("Delhi");
         destinations.add("Chennai");
         tripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, 4);
-        assertEquals("Incorrect Expense", 74800.0f, tripExpenseCalculation.getTripExpense(), 0.0);
+        assertEquals("Incorrect Expense", 47334.0f, tripExpenseCalculation.getTripExpense(), 0.0);
     }
 
     @Test
     public void testTotalExpenseForRentingBusWithoutACForExceedingPassengerLimit() {
         VehicleType vehicleType = new Bus(FuelType.DIESEL, VehicleFacility.NON_AC);
-        List<String> destinations = new ArrayList<String>();
+        List<String> destinations = new ArrayList<>();
         destinations.add("Pune");
         destinations.add("Mumbai");
-        destinations.add("Bangalore");
         destinations.add("Delhi");
         destinations.add("Chennai");
         tripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, 12);
-        assertEquals("Incorrect Expense", 74800.0f, tripExpenseCalculation.getTripExpense(), 0.0);
+        assertEquals("Incorrect Expense", 54234.0f, tripExpenseCalculation.getTripExpense(), 0.0);
     }
 
     @Test
     public void testTotalExpenseForRentingBusWithACForExceedingPassengerLimit() {
         VehicleType vehicleType = new Bus(FuelType.DIESEL, VehicleFacility.AC);
-        List<String> destinations = new ArrayList<String>();
+        List<String> destinations = new ArrayList<>();
         destinations.add("Pune");
         destinations.add("Mumbai");
-        destinations.add("Bangalore");
         destinations.add("Delhi");
         destinations.add("Chennai");
         tripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, 14);
-        assertEquals("Incorrect Expense", 74800.0f, tripExpenseCalculation.getTripExpense(), 0.0);
+        assertEquals("Incorrect Expense", 68034.0f, tripExpenseCalculation.getTripExpense(), 0.0);
     }
 
     ///////////////////////////////// End of Tests for Renting Bus Type //////////////////////////////////////////////////

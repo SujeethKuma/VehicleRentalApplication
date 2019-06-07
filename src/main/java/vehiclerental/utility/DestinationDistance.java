@@ -26,7 +26,7 @@ public class DestinationDistance {
 
     private static Map<List<String>, Float> getDistance() {
         // Map containing the distance between the cities
-        final Map<List<String>, Float> distance = new HashMap<List<String>, Float>();
+        final Map<List<String>, Float> distance = new HashMap<>();
         distance.put(Arrays.asList("Pune", "Mumbai"), 200f);
         distance.put(Arrays.asList("Pune", "Bangalore"), 1000f);
         distance.put(Arrays.asList("Pune", "Delhi"), 1000f);
@@ -37,6 +37,8 @@ public class DestinationDistance {
         distance.put(Arrays.asList("Bangalore", "Delhi"), 2500f);
         distance.put(Arrays.asList("Bangalore", "Chennai"), 2500f);
         distance.put(Arrays.asList("Delhi", "Chennai"), 1200f);
+        distance.put(Arrays.asList("Chennai", "Delhi"), 1200f);
+
         return distance;
     }
 
