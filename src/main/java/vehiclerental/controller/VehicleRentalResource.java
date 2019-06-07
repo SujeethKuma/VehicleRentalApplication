@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import vehiclerental.TripExpenseCalculation;
 import vehiclerental.utility.BusTypes;
 import vehiclerental.utility.CarTypes;
+import vehiclerental.utility.DestinationDistance;
 import vehiclerental.vehicleTypes.VehicleType;
 import vehiclerental.enums.FuelType;
 import vehiclerental.enums.VehicleFacility;
@@ -53,13 +54,20 @@ public class VehicleRentalResource {
             vehicleType = new Bus(fuel, facility);
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body("No such Vehicle available");
+                    .body("No such Vehicle available. Only cars like Swift, WagonR and buses like Volvo, MultiAxle are available");
         }
 
         List<String> destinations = new ArrayList<>();
         String [] cityLists = cities.split(" ");
         destinations.addAll(Arrays.asList(cityLists));
 
+        // check if the cities entered are valid
+        try {
+            DestinationDistance.checkValidCityNames(destinations);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(e.getMessage());
+        }
 
         TripExpenseCalculation carTripExpenseCalculation = new TripExpenseCalculation(vehicleType, destinations, numberOfPassengers);
 

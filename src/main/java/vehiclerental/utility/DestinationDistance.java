@@ -14,7 +14,10 @@ public class DestinationDistance {
 
     }
 
+    private static List<String> cityList = Arrays.asList("Pune", "Bangalore", "Chennai", "Delhi", "Mumbai");
+
     public static float getTotalDistance(List<String> strings){
+        checkValidCityNames(strings);
         float totalDestination = 0f;
         final Map<List<String>, Float> distance = getDistance();
         //loop to get the total distance to be travelled
@@ -22,6 +25,16 @@ public class DestinationDistance {
             totalDestination += distance.get(Arrays.asList(strings.get(i), strings.get(i+1)));
         }
         return totalDestination;
+    }
+
+    public static void checkValidCityNames(List<String> strings) {
+        boolean validCityName;
+        for ( String string : strings){
+            validCityName = cityList.contains(string);
+            if(!validCityName){
+                throw new IllegalArgumentException("Sorry!! We don't rent car to some of the cities mentioned. We rent only to cities Pune, Bangalore, Chennai, Delhi and Mumbai. Please enter cities separated by spaces.");
+            }
+        }
     }
 
     private static Map<List<String>, Float> getDistance() {
