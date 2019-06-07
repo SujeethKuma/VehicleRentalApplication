@@ -39,6 +39,6 @@ public class TripExpenseCalculation {
             //Additional charges of 1 Rs/Km/Person are charged if number of passengers exceeds the max limit of a vehicle
             extraPassengerCharge = totalDistance * (numberOfPassengers - vehicleType.passengerLimit());
         }
-        return (standardRate * totalDistance - (standardRate * totalDistance * ( vehicleType.getDiscount()/100)) + (additionalFacilityCharge*totalDistance) + extraPassengerCharge );
+        return ((standardRate * totalDistance - (standardRate * totalDistance * ( vehicleType.getDiscount()/100f))) + (additionalFacilityCharge*totalDistance) + extraPassengerCharge );
     }
 }

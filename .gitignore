@@ -1,2 +1,8 @@
+target/
 .idea/
 carrentalapplication.iml
+*.class
+.classpath
+.project
+*.MF
+classes/
